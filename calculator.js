@@ -68,6 +68,8 @@ function GetNumber(eventBtn){
 } 
 
 function SaveOperator(eventBtn){
+    if (currentValue === "") return;
+    
     operator = eventBtn.target.textContent;
     previousValue = currentValue;
     currentValue = "";
@@ -96,20 +98,30 @@ function ClearEntry(eventBtn){
 }
 
 function Calculate(){
+
+    let result = 0;
+    const prev = parseFloat(previousValue);
+    const current = parseFloat(currentValue);
     switch(operator){
         case "+":
             //SUMA
+            result = prev + current;
             break;
         case "-":
             //RESTA
+            result = prev - current;
             break;
         case "*":
             //Multiplicacion
+            result = prev * current;
             break;
         case "/":
             //Division
+            result = prev / current;
             break;
+            
     }
+    screenText.textContent = result.toString();
 }
 
 createButtons(numbersContainer, numberArray);
