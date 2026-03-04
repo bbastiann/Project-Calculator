@@ -69,7 +69,7 @@ function GetNumber(eventBtn){
 
 function SaveOperator(eventBtn){
     if (currentValue === "") return;
-    
+
     operator = eventBtn.target.textContent;
     previousValue = currentValue;
     currentValue = "";
@@ -99,6 +99,8 @@ function ClearEntry(eventBtn){
 
 function Calculate(){
 
+    if (previousValue === "" || currentValue === "" || operator === "") return;
+    
     let result = 0;
     const prev = parseFloat(previousValue);
     const current = parseFloat(currentValue);
@@ -121,7 +123,9 @@ function Calculate(){
             break;
             
     }
-    screenText.textContent = result.toString();
+    screenText.textContent = result.toString();     
+    currentValue = "";   
+    operator = "";       
 }
 
 createButtons(numbersContainer, numberArray);
