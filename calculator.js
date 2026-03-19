@@ -70,9 +70,16 @@ function getNumber(eventBtn) {
 function saveOperator(eventBtn) {
     if (state.current === "") return;
 
+    if (state.previous !== "" && state.operator !== "") {
+        calculate();
+        state.previous = state.current;
+        state.current = "";
+    } else {
+        state.previous = state.current;
+        state.current = "";
+    }
+
     state.operator = eventBtn.target.textContent;
-    state.previous = state.current;
-    state.current = "";
 }
 
 function clearEntry(eventBtn) {
