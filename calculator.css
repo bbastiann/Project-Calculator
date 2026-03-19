@@ -22,7 +22,7 @@ body {
 }
 
 .screen-text {
-    font-size: 2rem;
+    font-size: 32px;
 }
 
 .numbers-container {
@@ -52,6 +52,6 @@ body {
 
 button {
     padding: 15px;
-    font-size: 1.2rem;
+    font-size: 20px;
     cursor: pointer;
 }
