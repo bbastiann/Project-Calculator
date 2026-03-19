@@ -59,9 +59,10 @@ function createButtons(container, arrayB) {
 
 function getNumber(eventBtn) {
     const numberText = eventBtn.target.textContent;
-    
-    if (numberText === "." && state.current.includes(".")) return; 
-    
+
+    if (numberText === "." && state.current === "") state.current = "0";
+    if (numberText === "." && state.current.includes(".")) return;
+
     state.current = state.current + numberText;
     screenText.textContent = state.current;
 }
